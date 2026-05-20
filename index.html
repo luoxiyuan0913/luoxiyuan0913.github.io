@@ -1,570 +1,1458 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>L.O.A.D 台中羅氏廣告車 | 城市行動廣告品牌</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Noto Sans TC',sans-serif;
-    background:#f4f7fb;
-    color:#111;
-    overflow-x:hidden;
-}
-
-/* ===== NAVBAR ===== */
-
-.navbar{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:999;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,0.75);
-    border-bottom:1px solid rgba(255,255,255,0.3);
-}
-
-.nav-container{
-    width:90%;
-    max-width:1400px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 0;
-}
-
-.logo{
-    font-size:32px;
-    font-weight:900;
-    letter-spacing:4px;
-}
-
-.nav-links{
-    display:flex;
-    gap:35px;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:#111;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.nav-links a:hover{
-    color:#0d6efd;
-}
-
-/* ===== HERO ===== */
-
-.hero{
-    min-height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-    background:
-    linear-gradient(rgba(255,255,255,0.72),rgba(255,255,255,0.78)),
-    url('https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2070');
-    background-size:cover;
-    background-position:center;
-}
-
-.hero::before{
-    content:'';
-    position:absolute;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,#0d6efd22,transparent);
-    top:-200px;
-    right:-100px;
-}
-
-.hero-container{
-    width:90%;
-    max-width:1400px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:60px;
-    align-items:center;
-    position:relative;
-    z-index:2;
-}
-
-.hero-left h1{
-    font-size:82px;
-    line-height:1;
-    font-weight:900;
-    margin-bottom:25px;
-}
-
-.hero-left h1 span{
-    color:#0d6efd;
-}
-
-.hero-left p{
-    font-size:22px;
-    line-height:1.9;
-    color:#444;
-    margin-bottom:40px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:18px 38px;
-    border-radius:60px;
-    text-decoration:none;
-    font-weight:700;
-    transition:0.35s;
-}
-
-.btn-primary{
-    background:#111;
-    color:white;
-}
-
-.btn-primary:hover{
-    background:#0d6efd;
-    transform:translateY(-3px);
-}
-
-.btn-secondary{
-    border:2px solid #111;
-    color:#111;
-}
-
-.btn-secondary:hover{
-    background:#111;
-    color:white;
-}
-
-/* ===== HERO CARD ===== */
-
-.hero-card{
-    background:rgba(255,255,255,0.85);
-    border-radius:35px;
-    padding:40px;
-    backdrop-filter:blur(20px);
-    box-shadow:0 20px 60px rgba(0,0,0,0.12);
-}
-
-.hero-card img{
-    width:100%;
-    border-radius:25px;
-    margin-bottom:25px;
-}
-
-.card-title{
-    font-size:28px;
-    font-weight:800;
-    margin-bottom:18px;
-}
-
-.card-desc{
-    color:#555;
-    line-height:1.8;
-}
-
-/* ===== SECTION ===== */
-
-.section{
-    padding:120px 8%;
-}
-
-.section-header{
-    text-align:center;
-    margin-bottom:70px;
-}
-
-.section-header h2{
-    font-size:52px;
-    margin-bottom:20px;
-}
-
-.section-header p{
-    color:#666;
-    font-size:20px;
-}
-
-/* ===== SERVICES ===== */
-
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
-}
-
-.service-card{
-    background:white;
-    border-radius:30px;
-    padding:45px;
-    box-shadow:0 15px 45px rgba(0,0,0,0.06);
-    transition:0.35s;
-}
-
-.service-card:hover{
-    transform:translateY(-10px);
-}
-
-.service-card h3{
-    font-size:28px;
-    margin-bottom:20px;
-}
-
-.service-card p{
-    line-height:1.9;
-    color:#555;
-}
-
-/* ===== ABOUT ===== */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.about img{
-    width:100%;
-    border-radius:35px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.12);
-}
-
-.about-content h2{
-    font-size:52px;
-    margin-bottom:25px;
-}
-
-.about-content p{
-    color:#555;
-    line-height:2;
-    margin-bottom:20px;
-}
-
-/* ===== CONTACT ===== */
-
-.contact{
-    background:#111;
-    color:white;
-    text-align:center;
-    border-radius:40px;
-    padding:80px 40px;
-}
-
-.contact h2{
-    font-size:48px;
-    margin-bottom:20px;
-}
-
-.contact p{
-    font-size:20px;
-    color:#ccc;
-    margin-bottom:35px;
-}
-
-.contact-btn{
-    display:inline-block;
-    padding:18px 40px;
-    background:white;
-    color:#111;
-    border-radius:60px;
-    text-decoration:none;
-    font-weight:700;
-    transition:0.35s;
-}
-
-.contact-btn:hover{
-    background:#0d6efd;
-    color:white;
-}
-
-/* ===== FOOTER ===== */
-
-.footer{
-    text-align:center;
-    padding:40px;
-    color:#777;
-    font-size:14px;
-}
-
-/* ===== MOBILE ===== */
-
-@media(max-width:1000px){
-
-.hero-container,
-.about{
-    grid-template-columns:1fr;
-}
-
-.hero-left h1{
-    font-size:58px;
-}
-
-.hero{
-    padding-top:120px;
-}
-
-.nav-links{
-    display:none;
-}
-
-.section-header h2,
-.about-content h2,
-.contact h2{
-    font-size:38px;
-}
-
-}
-
-@media(max-width:600px){
-
-.hero-left h1{
-    font-size:42px;
-}
-
-.hero-left p{
-    font-size:18px;
-}
-
-.section{
-    padding:90px 7%;
-}
-
-.hero-card{
-    padding:25px;
-}
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L.O.A.D 台中羅氏廣告車 | 移動的力量・讓品牌看見夢想</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Oswald:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C8A84B;
+      --gold-light: #E8C96A;
+      --dark: #0A0A0A;
+      --dark2: #111111;
+      --dark3: #1A1A1A;
+      --dark4: #222222;
+      --white: #F5F0E8;
+      --gray: #888;
+      --red: #D4372A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,168,75,0.15);
+      transition: all 0.3s;
+    }
+
+    nav.scrolled {
+      padding: 12px 60px;
+      background: rgba(10,10,10,0.98);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      filter: brightness(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(245,240,232,0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 9px 24px;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      letter-spacing: 1px !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://luoxiyuan0913.github.io/assets/banner.png') center/cover no-repeat;
+      transform: scale(1.05);
+      animation: heroZoom 12s ease-out forwards;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.05); }
+      to { transform: scale(1.0); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(10,10,10,0.92) 0%,
+        rgba(10,10,10,0.7) 50%,
+        rgba(10,10,10,0.3) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(200,168,75,0.15);
+      border: 1px solid rgba(200,168,75,0.4);
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s 0.2s both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-title {
+      font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+      animation: fadeUp 0.8s 0.4s both;
+    }
+
+    .hero-title .line1 { color: var(--white); display: block; }
+    .hero-title .line2 { color: var(--gold); display: block; }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: rgba(245,240,232,0.65);
+      letter-spacing: 1.5px;
+      margin-bottom: 48px;
+      line-height: 1.8;
+      animation: fadeUp 0.8s 0.6s both;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      animation: fadeUp 0.8s 0.8s both;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 16px 40px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(200,168,75,0.4);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(245,240,232,0.35);
+      color: var(--white);
+      padding: 16px 40px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 60px;
+      right: 80px;
+      z-index: 2;
+      display: flex;
+      gap: 48px;
+      animation: fadeUp 0.8s 1s both;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(245,240,232,0.5);
+      letter-spacing: 2px;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(245,240,232,0.4);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: fadeUp 0.8s 1.2s both;
+    }
+
+    .scroll-line {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      animation: lineGrow 1.5s 1.5s infinite alternate;
+    }
+
+    @keyframes lineGrow {
+      from { width: 24px; }
+      to { width: 48px; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 100px 80px; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--white);
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-wrap {
+      background: var(--gold);
+      overflow: hidden;
+      padding: 14px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 32px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+
+    .marquee-dot { width: 5px; height: 5px; background: var(--dark); border-radius: 50%; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--dark2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: rgba(245,240,232,0.7);
+      line-height: 2;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .pillar {
+      border: 1px solid rgba(200,168,75,0.2);
+      padding: 20px;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .pillar:hover {
+      border-color: var(--gold);
+      background: rgba(200,168,75,0.05);
+    }
+
+    .pillar-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .pillar-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .pillar-desc {
+      font-size: 12px;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.6;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-main-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 2px;
+      filter: brightness(0.85) contrast(1.05);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 24px 28px;
+      border-radius: 2px;
+    }
+
+    .about-badge-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+
+    .about-badge-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: block;
+    }
+
+    /* ─── SERVICES ─── */
+    #services {
+      background: var(--dark3);
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(200,168,75,0.1);
+      border: 1px solid rgba(200,168,75,0.1);
+    }
+
+    .service-card {
+      background: var(--dark3);
+      padding: 40px 32px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      background: rgba(200,168,75,0.06);
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: rgba(200,168,75,0.4);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .service-icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .service-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.8;
+    }
+
+    /* ─── PRICING ─── */
+    #pricing {
+      background: var(--dark);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      border: 1px solid rgba(200,168,75,0.2);
+      padding: 48px 36px;
+      text-align: center;
+      border-radius: 2px;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .price-card.featured {
+      border-color: var(--gold);
+      background: rgba(200,168,75,0.06);
+    }
+
+    .price-card.featured::before {
+      content: '最受歡迎';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 16px;
+      border-radius: 2px;
+    }
+
+    .price-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .price-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+
+    .price-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .price-amount {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .price-currency {
+      font-size: 20px;
+      vertical-align: super;
+    }
+
+    .price-unit {
+      font-size: 13px;
+      color: rgba(245,240,232,0.4);
+      letter-spacing: 1px;
+      margin-top: 8px;
+      display: block;
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: rgba(245,240,232,0.35);
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .pricing-notice {
+      text-align: center;
+      margin-top: 48px;
+      padding: 24px;
+      border: 1px solid rgba(200,168,75,0.2);
+      border-radius: 2px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-notice p {
+      font-size: 13px;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.8;
+    }
+
+    .pricing-notice strong { color: var(--gold); }
+
+    /* ─── GALLERY ─── */
+    #gallery {
+      background: var(--dark2);
+      padding-bottom: 0;
+    }
+
+    .gallery-header {
+      margin-bottom: 48px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 220px);
+      gap: 4px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item.tall { grid-row: span 2; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: brightness(0.8) contrast(1.05);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.9) contrast(1.1);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+    .gallery-item-label {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ─── TESTIMONIAL / BRAND SECTION ─── */
+    #brand {
+      background: var(--dark3);
+      text-align: center;
+    }
+
+    .brand-tagline {
+      font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 600;
+      line-height: 1.3;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+
+    .brand-tagline .gold { color: var(--gold); }
+
+    .brand-desc {
+      font-size: 15px;
+      color: rgba(245,240,232,0.6);
+      max-width: 600px;
+      margin: 0 auto 60px;
+      line-height: 1.9;
+    }
+
+    .values-row {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+
+    .value-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .value-icon {
+      width: 56px;
+      height: 56px;
+      border: 1px solid rgba(200,168,75,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .value-text {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gold);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info { padding-top: 20px; }
+
+    .contact-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(200,168,75,0.1);
+    }
+
+    .contact-item:last-of-type { border-bottom: none; }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(200,168,75,0.12);
+      border: 1px solid rgba(200,168,75,0.25);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .contact-sub {
+      font-size: 12px;
+      color: rgba(245,240,232,0.4);
+      margin-top: 3px;
+    }
+
+    .contact-form-wrap {
+      background: var(--dark2);
+      border: 1px solid rgba(200,168,75,0.15);
+      padding: 48px;
+      border-radius: 2px;
+    }
+
+    .form-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,168,75,0.2);
+      color: var(--white);
+      padding: 14px 16px;
+      font-size: 14px;
+      font-family: 'Noto Sans TC', sans-serif;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-select option { background: var(--dark2); }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,168,75,0.4);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #050505;
+      padding: 48px 80px 32px;
+      border-top: 1px solid rgba(200,168,75,0.1);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 24px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      filter: brightness(0.8);
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: rgba(245,240,232,0.35);
+      letter-spacing: 1px;
+      max-width: 320px;
+      line-height: 1.7;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(245,240,232,0.25);
+      letter-spacing: 1px;
+    }
+
+    .footer-since {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 3px;
+    }
+
+    /* ─── DIVIDER ─── */
+    .gold-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px 0 36px;
+    }
+
+    /* ─── MOBILE MENU ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (max-width: 1024px) {
+      nav { padding: 16px 32px; }
+      section { padding: 80px 32px; }
+      #hero .hero-content { padding: 0 32px; }
+      .hero-stats { right: 32px; bottom: 40px; }
+      .hero-scroll { left: 32px; }
+      footer { padding: 40px 32px 24px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #about, #contact { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gallery-item.wide, .gallery-item.tall { grid-column: span 1; grid-row: span 1; }
+      .hero-stats { display: none; }
+      .values-row { gap: 32px; }
+      .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
 </head>
-
 <body>
 
 <!-- NAV -->
-
-<nav class="navbar">
-
-<div class="nav-container">
-
-<div class="logo">
-L.O.A.D
-</div>
-
-<div class="nav-links">
-<a href="#services">服務項目</a>
-<a href="#about">品牌介紹</a>
-<a href="#contact">聯絡我們</a>
-</div>
-
-</div>
-
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="https://luoxiyuan0913.github.io/assets/logo.png" alt="羅氏廣告車 L.O.A.D" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#C8A84B; letter-spacing:3px;">L.O.A.D</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">關於我們</a></li>
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#gallery">案例展示</a></li>
+    <li><a href="#pricing">報價資訊</a></li>
+    <li><a href="#contact" class="nav-cta">立即洽詢</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">SINCE 1998 &nbsp;·&nbsp; 台中專業廣告車</div>
+    <h1 class="hero-title">
+      <span class="line1">移動的力量</span>
+      <span class="line2">讓品牌看見夢想</span>
+    </h1>
+    <p class="hero-subtitle">
+      深耕台中廣告宣傳車產業逾28年<br>
+      全方位行動廣告服務 · 城市巡迴曝光策略<br>
+      協助您的品牌在最短時間內達到最大市場能見度
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">立即洽詢報價</a>
+      <a href="#services" class="btn-outline">了解服務內容</a>
+    </div>
+  </div>
 
-<section class="hero">
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">28+</span>
+      <span class="stat-label">年深耕台中</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1998</span>
+      <span class="stat-label">創立年份</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">零誤差執行</span>
+    </div>
+  </div>
 
-<div class="hero-container">
+  <div class="hero-scroll">
+    <span class="scroll-line"></span>
+    SCROLL DOWN
+  </div>
+</section>
 
-<div class="hero-left">
-
-<h1>
-城市移動<br>
-廣告新<span>視界</span>
-</h1>
-
-<p>
-L.O.A.D 台中羅氏廣告車專注於高辨識度行動媒體宣傳，
-結合都市街景曝光、商圈巡迴與品牌活動推廣，
-打造兼具時尚感與高記憶點的城市廣告體驗。
-</p>
-
-<div class="hero-buttons">
-
-<a href="#contact" class="btn btn-primary">
-立即洽詢
-</a>
-
-<a href="#services" class="btn btn-secondary">
-了解服務
-</a>
-
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">廣告宣傳車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">LED活動車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">車體看板噴圖<span class="marquee-dot"></span></span>
+    <span class="marquee-item">戶外巡迴廣播<span class="marquee-dot"></span></span>
+    <span class="marquee-item">選舉宣傳車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">建案行銷<span class="marquee-dot"></span></span>
+    <span class="marquee-item">廟宇活動宣傳<span class="marquee-dot"></span></span>
+    <span class="marquee-item">開幕活動推廣<span class="marquee-dot"></span></span>
+    <span class="marquee-item">廣告宣傳車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">LED活動車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">車體看板噴圖<span class="marquee-dot"></span></span>
+    <span class="marquee-item">戶外巡迴廣播<span class="marquee-dot"></span></span>
+    <span class="marquee-item">選舉宣傳車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">建案行銷<span class="marquee-dot"></span></span>
+    <span class="marquee-item">廟宇活動宣傳<span class="marquee-dot"></span></span>
+    <span class="marquee-item">開幕活動推廣<span class="marquee-dot"></span></span>
+  </div>
 </div>
 
-</div>
-
-<div class="hero-card">
-
-<img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=2070">
-
-<div class="card-title">
-台中城市廣告巡迴
-</div>
-
-<div class="card-desc">
-結合台中國家歌劇院、台中公園與城市商圈動線，
-透過大型廣告車打造高流量品牌曝光，
-提升企業形象與市場關注度。
-</div>
-
-</div>
-
-</div>
-
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="about-text">
+    <div class="section-label">關於羅氏</div>
+    <h2 class="section-title">台中老字號<br>行動廣告專家</h2>
+    <div class="gold-divider"></div>
+    <p>羅氏廣告企劃成立於1998年，深耕台中廣告宣傳車產業已逾28年，為在地知名老字號專業行動廣告服務團隊。</p>
+    <p>秉持「盡責拼第一、實在、效力、勤快」的精神，長期服務各類選舉活動、商業行銷、建案推廣及品牌宣傳，累積豐富實戰經驗與客戶信賴。</p>
+    <p>我們重視每一個細節，從行程安排、時間控管到現場執行皆嚴謹落實，確保「零誤差」準時完成客戶交付任務。</p>
+    <div class="about-pillars">
+      <div class="pillar">
+        <span class="pillar-icon">🏆</span>
+        <div class="pillar-title">盡責拼第一</div>
+        <div class="pillar-desc">全力以赴，追求最佳宣傳成效</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🤝</span>
+        <div class="pillar-title">誠信實在</div>
+        <div class="pillar-desc">合理價格，透明服務無隱費</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">⚡</span>
+        <div class="pillar-title">高效執行</div>
+        <div class="pillar-desc">零誤差準時完成每項任務</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🚀</span>
+        <div class="pillar-title">機動勤快</div>
+        <div class="pillar-desc">靈活調度，快速回應客戶需求</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-visual reveal reveal-delay-2">
+    <img class="about-main-img"
+      src="https://luoxiyuan0913.github.io/assets/banner.png"
+      alt="羅氏廣告車實績"
+      onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'450\' viewBox=\'0 0 600 450\'><rect width=\'600\' height=\'450\' fill=\'%231a1a1a\'/><text x=\'50%25\' y=\'50%25\' fill=\'%23C8A84B\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>L.O.A.D 台中羅氏廣告車</text></svg>'">
+    <div class="about-badge">
+      <span class="about-badge-num">28</span>
+      <span class="about-badge-text">年深耕台中</span>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">服務項目</div>
+      <h2 class="section-title">全方位行動廣告<br>解決方案</h2>
+    </div>
+    <a href="#contact" class="btn-primary" style="flex-shrink:0">立即詢價 →</a>
+  </div>
 
-<section class="section" id="services">
-
-<div class="section-header">
-
-<h2>
-專業行動廣告服務
-</h2>
-
-<p>
-打造具有城市影響力的移動式品牌宣傳
-</p>
-
-</div>
-
-<div class="services">
-
-<div class="service-card">
-
-<h3>
-品牌巡迴曝光
-</h3>
-
-<p>
-透過高流量商圈與活動路線規劃，
-讓品牌廣告深入城市核心區域，
-提升企業曝光與品牌記憶度。
-</p>
-
-</div>
-
-<div class="service-card">
-
-<h3>
-活動宣傳推廣
-</h3>
-
-<p>
-結合展覽、商圈活動、新品上市與大型開幕，
-打造具有現場吸引力的移動廣告宣傳模式。
-</p>
-
-</div>
-
-<div class="service-card">
-
-<h3>
-高辨識度車體設計
-</h3>
-
-<p>
-運用大型視覺輸出與專業車體廣告設計，
-建立強烈品牌識別與都市視覺焦點。
-</p>
-
-</div>
-
-</div>
-
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <span class="service-icon">🚛</span>
+      <div class="service-title">廣告宣傳車<br>巡迴曝光</div>
+      <p class="service-desc">透過高流量商圈與活動路線規劃，讓品牌廣告深入城市核心，提升市場能見度</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <span class="service-icon">💡</span>
+      <div class="service-title">LED電子<br>活動車</div>
+      <p class="service-desc">高亮度LED顯示屏，日夜均可清晰呈現，動態影像吸引更多目光</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <span class="service-icon">🖨️</span>
+      <div class="service-title">車體看板<br>電腦噴圖</div>
+      <p class="service-desc">專業大型輸出印刷，高解析度全彩噴圖，完整包覆車體達到最佳視覺衝擊</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <span class="service-icon">📢</span>
+      <div class="service-title">戶外巡迴<br>廣播宣傳</div>
+      <p class="service-desc">專業錄音製作搭配車載音響系統，聲音廣告深入各大社區與商業區域</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <span class="service-icon">🗳️</span>
+      <div class="service-title">選舉宣傳<br>車服務</div>
+      <p class="service-desc">豐富選舉宣傳經驗，協助候選人在選區內建立高知名度與正面形象</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <span class="service-icon">🏛️</span>
+      <div class="service-title">廟宇・政府<br>活動宣傳</div>
+      <p class="service-desc">廟宇慶典、政府活動專業宣傳服務，深入社區觸達各年齡層民眾</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">07</span>
+      <span class="service-icon">🏢</span>
+      <div class="service-title">建案行銷<br>開幕推廣</div>
+      <p class="service-desc">建案預售、店面開幕前期宣傳，快速吸引人潮聚集，提升現場到訪率</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">08</span>
+      <span class="service-icon">🎯</span>
+      <div class="service-title">品牌活動<br>整合行銷</div>
+      <p class="service-desc">大型商業活動、展覽推廣、新品上市等全方位行動廣告整合宣傳策略</p>
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT -->
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">案例展示</div>
+    <h2 class="section-title">實績案例 · 多元客戶</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item wide">
+      <img src="https://luoxiyuan0913.github.io/assets/banner.png" alt="廣告車車隊" onerror="this.parentElement.style.background='#1a1a1a'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">品牌車隊</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://luoxiyuan0913.github.io/assets/case1.jpg" alt="運動品牌活動" onerror="this.parentElement.style.background='#222'; this.style.display='none'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">運動品牌</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://luoxiyuan0913.github.io/assets/case2.jpg" alt="電視劇宣傳" onerror="this.parentElement.style.background='#1c1c1c'; this.style.display='none'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">媒體宣傳</span></div>
+    </div>
+    <div class="gallery-item tall">
+      <img src="https://luoxiyuan0913.github.io/assets/case3.jpg" alt="廟宇活動" onerror="this.parentElement.style.background='#1e1e1e'; this.style.display='none'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">廟宇慶典</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://luoxiyuan0913.github.io/assets/case4.jpg" alt="服飾品牌" onerror="this.parentElement.style.background='#202020'; this.style.display='none'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">服飾品牌</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://luoxiyuan0913.github.io/assets/case5.jpg" alt="博覽會宣傳" onerror="this.parentElement.style.background='#1a1a1a'; this.style.display='none'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">博覽會</span></div>
+    </div>
+    <div class="gallery-item wide">
+      <img src="https://luoxiyuan0913.github.io/assets/case6.jpg" alt="夜間廣告" onerror="this.parentElement.style.background='#151515'; this.style.display='none'">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">夜間曝光</span></div>
+    </div>
+  </div>
+</section>
 
-<section class="section" id="about">
+<!-- BRAND VALUES -->
+<section id="brand" class="reveal">
+  <div class="section-label" style="justify-content:center">我們的承諾</div>
+  <h2 class="brand-tagline">
+    每一次出車<br>都是一次<span class="gold">品牌革命</span>
+  </h2>
+  <p class="brand-desc">
+    我們堅持誠信經營與合理價格，提供「高效率、實在價格、客戶滿意」的服務品質，讓每一場活動都能發揮最大宣傳效益。
+  </p>
+  <div class="values-row">
+    <div class="value-item">
+      <div class="value-icon">⏱️</div>
+      <span class="value-text">準時零誤差</span>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">💰</div>
+      <span class="value-text">實在合理價格</span>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🗺️</div>
+      <span class="value-text">專業路線規劃</span>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">🔒</div>
+      <span class="value-text">安全作業標準</span>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">😊</div>
+      <span class="value-text">客戶滿意第一</span>
+    </div>
+  </div>
+</section>
 
-<div class="about">
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-header reveal">
+    <div class="section-label" style="justify-content:center">2026年報價</div>
+    <h2 class="section-title" style="text-align:center">透明合理・實在價格</h2>
+    <div class="gold-divider" style="margin:20px auto 0"></div>
+  </div>
 
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=2070">
+  <div class="pricing-grid reveal">
+    <div class="price-card">
+      <span class="price-icon">🚛</span>
+      <div class="price-title">車資費用</div>
+      <div>
+        <span class="price-amount"><span class="price-currency">$</span>1,700</span>
+        <span class="price-unit">元 / 台 / 日</span>
+      </div>
+      <p class="price-note">一日以6小時計算<br>專業駕駛+執行團隊</p>
+    </div>
+    <div class="price-card featured">
+      <span class="price-icon">🖨️</span>
+      <div class="price-title">車體看板輸出</div>
+      <div>
+        <span class="price-amount"><span class="price-currency">$</span>3,000</span>
+        <span class="price-unit">元 / 台</span>
+      </div>
+      <p class="price-note">電腦噴圖全彩輸出<br>完整車體四面包覆</p>
+    </div>
+    <div class="price-card">
+      <span class="price-icon">🎙️</span>
+      <div class="price-title">錄音製作</div>
+      <div>
+        <span class="price-amount"><span class="price-currency">$</span>1,000</span>
+        <span class="price-unit">元 / 片</span>
+      </div>
+      <p class="price-note">專業廣播錄音製作<br>可搭配廣播宣傳服務</p>
+    </div>
+  </div>
 
-<div class="about-content">
-
-<h2>
-台中城市行動媒體品牌
-</h2>
-
-<p>
-L.O.A.D 台中羅氏廣告車致力於打造現代化城市廣告體驗，
-透過大型移動媒體與都市巡迴曝光，
-協助品牌快速建立市場能見度。
-</p>
-
-<p>
-我們結合視覺設計、車體廣告與城市動線規劃，
-讓每一次巡迴都成為品牌與城市互動的重要媒介。
-</p>
-
-<p>
-以高質感設計與專業宣傳策略，
-創造真正具影響力的城市行動廣告。
-</p>
-
-</div>
-
-</div>
-
+  <div class="pricing-notice reveal">
+    <p>以上為<strong>2026年起</strong>調整後價格，因人事支出、物資油價持續上漲，敬請見諒。<br>
+    實際費用依服務內容、車輛數量及執行天數議定，歡迎來電詢問詳細報價。</p>
+  </div>
 </section>
 
 <!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <div class="section-label">聯絡我們</div>
+    <h2 class="section-title">讓我們為您<br>打造最佳宣傳</h2>
+    <div class="gold-divider"></div>
+    <p style="color:rgba(245,240,232,0.6); font-size:14px; line-height:1.9; margin-bottom:40px;">
+      無論是商業促銷、選舉宣傳、廟宇活動或建案行銷，歡迎隨時聯繫我們，提供最適合您需求的行動廣告方案。
+    </p>
 
-<section class="section">
+    <div class="contact-item">
+      <div class="contact-icon">📱</div>
+      <div>
+        <div class="contact-label">行動電話</div>
+        <div class="contact-value">0923-521-561</div>
+        <div class="contact-sub">羅先生（隨時歡迎來電洽詢）</div>
+      </div>
+    </div>
 
-<div class="contact" id="contact">
+    <div class="contact-item">
+      <div class="contact-icon">☎️</div>
+      <div>
+        <div class="contact-label">公司電話</div>
+        <div class="contact-value">(04) 2228-6223</div>
+        <div class="contact-sub">台中羅氏廣告企劃</div>
+      </div>
+    </div>
 
-<h2>
-讓品牌被城市看見
-</h2>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">服務範圍</div>
+        <div class="contact-value">台中市全區</div>
+        <div class="contact-sub">可依需求規劃台中各區域巡迴路線</div>
+      </div>
+    </div>
 
-<p>
-歡迎洽詢 L.O.A.D 台中羅氏廣告車行動廣告服務
-</p>
+    <div class="contact-item">
+      <div class="contact-icon">🕐</div>
+      <div>
+        <div class="contact-label">服務時間</div>
+        <div class="contact-value">週一至週日</div>
+        <div class="contact-sub">每日 08:00 – 21:00</div>
+      </div>
+    </div>
+  </div>
 
-<a href="#" class="contact-btn">
-立即聯絡我們
-</a>
-
-</div>
-
+  <div class="contact-form-wrap reveal reveal-delay-2">
+    <div class="form-title">免費詢價・快速回覆</div>
+    <div class="form-group">
+      <label class="form-label">您的姓名 *</label>
+      <input type="text" class="form-input" placeholder="請輸入您的姓名">
+    </div>
+    <div class="form-group">
+      <label class="form-label">聯絡電話 *</label>
+      <input type="tel" class="form-input" placeholder="請輸入聯絡電話">
+    </div>
+    <div class="form-group">
+      <label class="form-label">服務需求</label>
+      <select class="form-select">
+        <option value="" disabled selected>請選擇服務類型</option>
+        <option>廣告宣傳車巡迴曝光</option>
+        <option>LED活動車</option>
+        <option>車體看板電腦噴圖</option>
+        <option>戶外廣播宣傳</option>
+        <option>選舉宣傳車服務</option>
+        <option>廟宇・政府活動宣傳</option>
+        <option>建案行銷・開幕活動</option>
+        <option>品牌商業活動推廣</option>
+        <option>其他（請說明）</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">活動說明</label>
+      <textarea class="form-textarea" placeholder="請描述您的活動內容、預計日期、車輛需求等，我們將盡快為您報價"></textarea>
+    </div>
+    <button class="form-submit" onclick="handleSubmit()">送出詢問</button>
+  </div>
 </section>
 
 <!-- FOOTER -->
-
-<footer class="footer">
-
-© 2026 L.O.A.D 台中羅氏廣告車 All Rights Reserved.
-
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="https://luoxiyuan0913.github.io/assets/logo.png" alt="L.O.A.D" onerror="this.outerHTML='<div style=\'font-family:Barlow Condensed,sans-serif;font-size:28px;font-weight:700;color:#C8A84B;letter-spacing:4px;\'>L.O.A.D</div>'">
+    </div>
+    <p class="footer-tagline">
+      台中羅氏廣告企劃・城市行動廣告品牌<br>
+      移動的力量，讓您的品牌看見夢想<br>
+      📞 0923-521-561 羅先生
+    </p>
+    <div style="text-align:right">
+      <div style="font-size:13px; color:rgba(245,240,232,0.5); line-height:2">
+        廣告宣傳車 ・ LED活動車<br>
+        車體看板噴圖 ・ 廣播宣傳
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 台中羅氏廣告企劃 L.O.A.D. All Rights Reserved.</p>
+    <span class="footer-since">SINCE 1998 · TAICHUNG</span>
+  </div>
 </footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Mobile menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'fixed';
+    links.style.top = '70px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'rgba(10,10,10,0.98)';
+    links.style.padding = '24px 32px';
+    links.style.borderBottom = '1px solid rgba(200,168,75,0.2)';
+    links.style.gap = '20px';
+    links.style.zIndex = '999';
+  }
+
+  // Form submit
+  function handleSubmit() {
+    const name = document.querySelector('.form-input').value;
+    const phone = document.querySelectorAll('.form-input')[1].value;
+    if (!name || !phone) {
+      alert('請填寫姓名與聯絡電話');
+      return;
+    }
+    alert('感謝您的詢問！我們將盡快與您聯繫。\n\n如需立即洽詢，請致電：0923-521-561 羅先生');
+  }
+</script>
 
 </body>
 </html>
