@@ -8,14 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Oswald:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gold: #C8A84B;
-      --gold-light: #E8C96A;
-      --dark: #0A0A0A;
-      --dark2: #111111;
-      --dark3: #1A1A1A;
-      --dark4: #222222;
-      --white: #F5F0E8;
-      --gray: #888;
+      --gold: #B8922A;
+      --gold-light: #D4A93C;
+      --dark: #FFFFFF;
+      --dark2: #F5F2EC;
+      --dark3: #EDE9E0;
+      --dark4: #E4DFD4;
+      --white: #1A1714;
+      --gray: #7A7570;
       --red: #D4372A;
     }
 
@@ -30,6 +30,8 @@
       overflow-x: hidden;
     }
 
+    /* ─── LIGHT THEME OVERRIDES ─── */
+
     /* ─── NAV ─── */
     nav {
       position: fixed;
@@ -39,15 +41,15 @@
       align-items: center;
       justify-content: space-between;
       padding: 18px 60px;
-      background: rgba(10,10,10,0.9);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,168,75,0.15);
+      border-bottom: 1px solid rgba(184,146,42,0.15);
       transition: all 0.3s;
     }
 
     nav.scrolled {
       padding: 12px 60px;
-      background: rgba(10,10,10,0.98);
+      background: rgba(255,255,255,0.98);
     }
 
     .nav-logo {
@@ -69,7 +71,7 @@
     }
 
     .nav-links a {
-      color: rgba(245,240,232,0.75);
+      color: rgba(26,23,20,0.65);
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
@@ -130,9 +132,9 @@
       inset: 0;
       background: linear-gradient(
         105deg,
-        rgba(10,10,10,0.92) 0%,
-        rgba(10,10,10,0.7) 50%,
-        rgba(10,10,10,0.3) 100%
+        rgba(255,252,245,0.88) 0%,
+        rgba(255,252,245,0.65) 50%,
+        rgba(255,252,245,0.25) 100%
       );
     }
 
@@ -147,8 +149,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(200,168,75,0.15);
-      border: 1px solid rgba(200,168,75,0.4);
+      background: rgba(184,146,42,0.15);
+      border: 1px solid rgba(184,146,42,0.4);
       padding: 8px 20px;
       border-radius: 2px;
       font-size: 12px;
@@ -182,12 +184,12 @@
       animation: fadeUp 0.8s 0.4s both;
     }
 
-    .hero-title .line1 { color: var(--white); display: block; }
+    .hero-title .line1 { color: #1A1714; display: block; }
     .hero-title .line2 { color: var(--gold); display: block; }
 
     .hero-subtitle {
       font-size: 15px;
-      color: rgba(245,240,232,0.65);
+      color: rgba(26,23,20,0.6);
       letter-spacing: 1.5px;
       margin-bottom: 48px;
       line-height: 1.8;
@@ -217,12 +219,12 @@
     .btn-primary:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(200,168,75,0.4);
+      box-shadow: 0 12px 40px rgba(184,146,42,0.4);
     }
 
     .btn-outline {
-      border: 1px solid rgba(245,240,232,0.35);
-      color: var(--white);
+      border: 1px solid rgba(26,23,20,0.3);
+      color: #1A1714;
       padding: 16px 40px;
       font-size: 14px;
       font-weight: 500;
@@ -262,7 +264,7 @@
 
     .stat-label {
       font-size: 11px;
-      color: rgba(245,240,232,0.5);
+      color: rgba(26,23,20,0.5);
       letter-spacing: 2px;
       display: block;
       margin-top: 4px;
@@ -276,7 +278,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      color: rgba(245,240,232,0.4);
+      color: rgba(26,23,20,0.4);
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -326,7 +328,7 @@
       font-size: clamp(32px, 4vw, 54px);
       font-weight: 600;
       line-height: 1.15;
-      color: var(--white);
+      color: #1A1714;
     }
 
     /* ─── MARQUEE ─── */
@@ -373,7 +375,7 @@
     }
 
     .about-text p {
-      color: rgba(245,240,232,0.7);
+      color: rgba(26,23,20,0.65);
       line-height: 2;
       font-size: 15px;
       margin-bottom: 20px;
@@ -387,7 +389,7 @@
     }
 
     .pillar {
-      border: 1px solid rgba(200,168,75,0.2);
+      border: 1px solid rgba(184,146,42,0.2);
       padding: 20px;
       border-radius: 2px;
       transition: all 0.3s;
@@ -395,7 +397,7 @@
 
     .pillar:hover {
       border-color: var(--gold);
-      background: rgba(200,168,75,0.05);
+      background: rgba(184,146,42,0.05);
     }
 
     .pillar-icon {
@@ -413,7 +415,7 @@
 
     .pillar-desc {
       font-size: 12px;
-      color: rgba(245,240,232,0.5);
+      color: rgba(26,23,20,0.5);
       line-height: 1.6;
     }
 
@@ -470,8 +472,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1px;
-      background: rgba(200,168,75,0.1);
-      border: 1px solid rgba(200,168,75,0.1);
+      background: rgba(184,146,42,0.12);
+      border: 1px solid rgba(184,146,42,0.12);
     }
 
     .service-card {
@@ -493,7 +495,7 @@
     }
 
     .service-card:hover {
-      background: rgba(200,168,75,0.06);
+      background: rgba(184,146,42,0.06);
     }
 
     .service-card:hover::before { transform: scaleX(1); }
@@ -503,7 +505,7 @@
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 3px;
-      color: rgba(200,168,75,0.4);
+      color: rgba(184,146,42,0.5);
       margin-bottom: 24px;
       display: block;
     }
@@ -517,14 +519,14 @@
     .service-title {
       font-size: 16px;
       font-weight: 700;
-      color: var(--white);
+      color: #1A1714;
       margin-bottom: 12px;
       line-height: 1.4;
     }
 
     .service-desc {
       font-size: 13px;
-      color: rgba(245,240,232,0.5);
+      color: rgba(26,23,20,0.5);
       line-height: 1.8;
     }
 
@@ -547,7 +549,7 @@
     }
 
     .price-card {
-      border: 1px solid rgba(200,168,75,0.2);
+      border: 1px solid rgba(184,146,42,0.2);
       padding: 48px 36px;
       text-align: center;
       border-radius: 2px;
@@ -557,7 +559,7 @@
 
     .price-card.featured {
       border-color: var(--gold);
-      background: rgba(200,168,75,0.06);
+      background: rgba(184,146,42,0.06);
     }
 
     .price-card.featured::before {
@@ -586,7 +588,7 @@
     .price-title {
       font-size: 15px;
       font-weight: 700;
-      color: var(--white);
+      color: #1A1714;
       margin-bottom: 24px;
       letter-spacing: 1px;
     }
@@ -607,7 +609,7 @@
 
     .price-unit {
       font-size: 13px;
-      color: rgba(245,240,232,0.4);
+      color: rgba(26,23,20,0.45);
       letter-spacing: 1px;
       margin-top: 8px;
       display: block;
@@ -615,7 +617,7 @@
 
     .price-note {
       font-size: 12px;
-      color: rgba(245,240,232,0.35);
+      color: rgba(26,23,20,0.4);
       margin-top: 20px;
       line-height: 1.6;
     }
@@ -624,7 +626,7 @@
       text-align: center;
       margin-top: 48px;
       padding: 24px;
-      border: 1px solid rgba(200,168,75,0.2);
+      border: 1px solid rgba(184,146,42,0.2);
       border-radius: 2px;
       max-width: 700px;
       margin-left: auto;
@@ -633,7 +635,7 @@
 
     .pricing-notice p {
       font-size: 13px;
-      color: rgba(245,240,232,0.5);
+      color: rgba(26,23,20,0.5);
       line-height: 1.8;
     }
 
@@ -717,7 +719,7 @@
 
     .brand-desc {
       font-size: 15px;
-      color: rgba(245,240,232,0.6);
+      color: rgba(26,23,20,0.6);
       max-width: 600px;
       margin: 0 auto 60px;
       line-height: 1.9;
@@ -740,7 +742,7 @@
     .value-icon {
       width: 56px;
       height: 56px;
-      border: 1px solid rgba(200,168,75,0.3);
+      border: 1px solid rgba(184,146,42,0.3);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -772,7 +774,7 @@
       align-items: flex-start;
       margin-bottom: 32px;
       padding-bottom: 32px;
-      border-bottom: 1px solid rgba(200,168,75,0.1);
+      border-bottom: 1px solid rgba(184,146,42,0.1);
     }
 
     .contact-item:last-of-type { border-bottom: none; }
@@ -780,8 +782,8 @@
     .contact-icon {
       width: 44px;
       height: 44px;
-      background: rgba(200,168,75,0.12);
-      border: 1px solid rgba(200,168,75,0.25);
+      background: rgba(184,146,42,0.12);
+      border: 1px solid rgba(184,146,42,0.25);
       border-radius: 2px;
       display: flex;
       align-items: center;
@@ -801,92 +803,125 @@
     .contact-value {
       font-size: 16px;
       font-weight: 600;
-      color: var(--white);
+      color: #1A1714;
     }
 
     .contact-sub {
       font-size: 12px;
-      color: rgba(245,240,232,0.4);
+      color: rgba(26,23,20,0.45);
       margin-top: 3px;
     }
 
-    .contact-form-wrap {
-      background: var(--dark2);
-      border: 1px solid rgba(200,168,75,0.15);
-      padding: 48px;
-      border-radius: 2px;
+    /* ─── SOCIAL CARDS ─── */
+    .social-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .form-title {
+    .social-section-label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .social-intro {
       font-size: 20px;
       font-weight: 700;
+      color: #1A1714;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .social-desc {
+      font-size: 13px;
+      color: rgba(26,23,20,0.5);
+      line-height: 1.8;
       margin-bottom: 32px;
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: rgba(245,240,232,0.5);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(200,168,75,0.2);
-      color: var(--white);
-      padding: 14px 16px;
-      font-size: 14px;
-      font-family: 'Noto Sans TC', sans-serif;
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 28px;
+      border: 1px solid rgba(184,146,42,0.15);
       border-radius: 2px;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--gold);
-    }
-
-    .form-select option { background: var(--dark2); }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .form-submit {
-      width: 100%;
-      background: var(--gold);
-      color: var(--dark);
-      border: none;
-      padding: 16px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      cursor: pointer;
-      border-radius: 2px;
+      background: var(--dark2);
+      text-decoration: none;
       transition: all 0.3s;
-      font-family: 'Noto Sans TC', sans-serif;
-      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .form-submit:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(200,168,75,0.4);
+    .social-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--social-color, var(--gold));
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+
+    .social-card:hover {
+      border-color: var(--social-color, var(--gold));
+      background: rgba(184,146,42,0.05);
+      transform: translateX(6px);
+    }
+
+    .social-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .social-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--social-color, var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 24px;
+      opacity: 0.9;
+    }
+
+    .social-text { flex: 1; }
+
+    .social-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1A1714;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .social-handle {
+      font-size: 12px;
+      color: rgba(26,23,20,0.45);
+      letter-spacing: 0.5px;
+    }
+
+    .social-arrow {
+      font-size: 18px;
+      color: rgba(184,146,42,0.4);
+      transition: all 0.3s;
+    }
+
+    .social-card:hover .social-arrow {
+      color: var(--gold);
+      transform: translateX(4px);
     }
 
     /* ─── FOOTER ─── */
     footer {
-      background: #050505;
+      background: #F5F2EC;
       padding: 48px 80px 32px;
-      border-top: 1px solid rgba(200,168,75,0.1);
+      border-top: 1px solid rgba(184,146,42,0.1);
     }
 
     .footer-inner {
@@ -894,7 +929,7 @@
       justify-content: space-between;
       align-items: center;
       padding-bottom: 32px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
       margin-bottom: 24px;
     }
 
@@ -905,7 +940,7 @@
 
     .footer-tagline {
       font-size: 12px;
-      color: rgba(245,240,232,0.35);
+      color: rgba(26,23,20,0.4);
       letter-spacing: 1px;
       max-width: 320px;
       line-height: 1.7;
@@ -919,7 +954,7 @@
 
     .footer-copy {
       font-size: 12px;
-      color: rgba(245,240,232,0.25);
+      color: rgba(26,23,20,0.3);
       letter-spacing: 1px;
     }
 
@@ -950,7 +985,7 @@
     .hamburger span {
       width: 24px;
       height: 2px;
-      background: var(--white);
+      background: #1A1714;
       transition: all 0.3s;
     }
 
@@ -1000,7 +1035,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <img src="https://luoxiyuan0913.github.io/assets/logo.png" alt="羅氏廣告車 L.O.A.D" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <img src="assets/logo.jpg" alt="羅氏廣告車 L.O.A.D" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
     <span style="display:none; font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#C8A84B; letter-spacing:3px;">L.O.A.D</span>
   </a>
   <ul class="nav-links">
@@ -1062,6 +1097,7 @@
   <div class="marquee-track">
     <!-- duplicate for seamless loop -->
     <span class="marquee-item">廣告宣傳車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">LED活動車<span class="marquee-dot"></span></span>
     <span class="marquee-item">車體看板噴圖<span class="marquee-dot"></span></span>
     <span class="marquee-item">戶外巡迴廣播<span class="marquee-dot"></span></span>
     <span class="marquee-item">選舉宣傳車<span class="marquee-dot"></span></span>
@@ -1069,6 +1105,7 @@
     <span class="marquee-item">廟宇活動宣傳<span class="marquee-dot"></span></span>
     <span class="marquee-item">開幕活動推廣<span class="marquee-dot"></span></span>
     <span class="marquee-item">廣告宣傳車<span class="marquee-dot"></span></span>
+    <span class="marquee-item">LED活動車<span class="marquee-dot"></span></span>
     <span class="marquee-item">車體看板噴圖<span class="marquee-dot"></span></span>
     <span class="marquee-item">戶外巡迴廣播<span class="marquee-dot"></span></span>
     <span class="marquee-item">選舉宣傳車<span class="marquee-dot"></span></span>
@@ -1114,7 +1151,7 @@
     <img class="about-main-img"
       src="assets/logo.jpg"
       alt="羅氏廣告車實績"
-      onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'450\' viewBox=\'0 0 600 450\'><rect width=\'600\' height=\'450\' fill=\'%231a1a1a\'/><text x=\'50%25\' y=\'50%25\' fill=\'%23C8A84B\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>L.O.A.D 台中羅氏廣告車</text></svg>'">
+      onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'450\' viewBox=\'0 0 600 450\'><rect width=\'600\' height=\'450\' fill=\'%23EDE9E0\'/><text x=\'50%25\' y=\'50%25\' fill=\'%23B8922A\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>L.O.A.D 台中羅氏廣告車</text></svg>'">
     <div class="about-badge">
       <span class="about-badge-num">28</span>
       <span class="about-badge-text">年深耕台中</span>
@@ -1193,31 +1230,31 @@
   </div>
   <div class="gallery-grid">
     <div class="gallery-item wide">
-      <img src="assets/封面.png" alt="廣告車車隊" onerror="this.parentElement.style.background='#1a1a1a'">
+      <img src="assets/封面.png" alt="廣告車車隊" onerror="this.parentElement.style.background='#EDE9E0'">
       <div class="gallery-item-overlay"><span class="gallery-item-label">品牌車隊</span></div>
     </div>
     <div class="gallery-item">
-      <img src="assets/case1.jpg" alt="品牌活動" onerror="this.parentElement.style.background='#222'; this.style.display='none'">
+      <img src="assets/case1.jpg" alt="品牌活動" onerror="this.parentElement.style.background='#E4DFD4'; this.style.display='none'">
       <div class="gallery-item-overlay"><span class="gallery-item-label">品牌活動</span></div>
     </div>
     <div class="gallery-item">
-      <img src="assets/case2.jpg" alt="知名企業宣傳" onerror="this.parentElement.style.background='#1c1c1c'; this.style.display='none'">
+      <img src="assets/case2.jpg" alt="知名企業宣傳" onerror="this.parentElement.style.background='#EDE9E0'; this.style.display='none'">
       <div class="gallery-item-overlay"><span class="gallery-item-label">知名企業宣傳</span></div>
     </div>
     <div class="gallery-item tall">
-      <img src="assets/case3.jpg" alt="服飾折扣宣傳" onerror="this.parentElement.style.background='#1e1e1e'; this.style.display='none'">
+      <img src="assets/case3.jpg" alt="服飾折扣宣傳" onerror="this.parentElement.style.background='#E4DFD4'; this.style.display='none'">
       <div class="gallery-item-overlay"><span class="gallery-item-label">服飾折扣宣傳</span></div>
     </div>
     <div class="gallery-item">
-      <img src="assets/case4.jpg" alt="廟宇活動" onerror="this.parentElement.style.background='#202020'; this.style.display='none'">
+      <img src="assets/case4.jpg" alt="廟宇活動" onerror="this.parentElement.style.background='#EDE9E0'; this.style.display='none'">
       <div class="gallery-item-overlay"><span class="gallery-item-label">廟宇活動</span></div>
     </div>
     <div class="gallery-item">
-      <img src="assets/case5.jpg" alt="就業博覽會宣傳" onerror="this.parentElement.style.background='#1a1a1a'; this.style.display='none'">
+      <img src="assets/case5.jpg" alt="就業博覽會宣傳" onerror="this.parentElement.style.background='#E4DFD4'; this.style.display='none'">
       <div class="gallery-item-overlay"><span class="gallery-item-label">就業博覽會宣傳</span></div>
     </div>
     <div class="gallery-item wide">
-      <img src="assets/新封面.png" alt="專業車體" onerror="this.parentElement.style.background='#151515'; this.style.display='none'">
+      <img src="assets/新封面.png" alt="專業車體" onerror="this.parentElement.style.background='#EDE9E0'; this.style.display='none'">
       <div class="gallery-item-overlay"><span class="gallery-item-label">專業車體</span></div>
     </div>
   </div>
@@ -1306,7 +1343,7 @@
     <div class="section-label">聯絡我們</div>
     <h2 class="section-title">讓我們為您<br>打造最佳宣傳</h2>
     <div class="gold-divider"></div>
-    <p style="color:rgba(245,240,232,0.6); font-size:14px; line-height:1.9; margin-bottom:40px;">
+    <p style="color:rgba(26,23,20,0.6); font-size:14px; line-height:1.9; margin-bottom:40px;">
       無論是商業促銷、選舉宣傳、廟宇活動或建案行銷，歡迎隨時聯繫我們，提供最適合您需求的行動廣告方案。
     </p>
 
@@ -1402,7 +1439,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="https://luoxiyuan0913.github.io/assets/logo.png" alt="L.O.A.D" onerror="this.outerHTML='<div style=\'font-family:Barlow Condensed,sans-serif;font-size:28px;font-weight:700;color:#C8A84B;letter-spacing:4px;\'>L.O.A.D</div>'">
+      <img src="https://luoxiyuan0913.github.io/assets/logo.png" alt="L.O.A.D" onerror="this.outerHTML='<div style=\'font-family:Barlow Condensed,sans-serif;font-size:28px;font-weight:700;color:#B8922A;letter-spacing:4px;\'>L.O.A.D</div>'">
     </div>
     <p class="footer-tagline">
       台中羅氏廣告企劃・城市行動廣告品牌<br>
@@ -1410,7 +1447,7 @@
       📞 0923-521-561 羅先生
     </p>
     <div style="text-align:right">
-      <div style="font-size:13px; color:rgba(245,240,232,0.5); line-height:2">
+      <div style="font-size:13px; color:rgba(26,23,20,0.5); line-height:2">
         廣告宣傳車 ・ LED活動車<br>
         車體看板噴圖 ・ 廣播宣傳
       </div>
@@ -1451,9 +1488,9 @@
     links.style.top = '70px';
     links.style.left = '0';
     links.style.right = '0';
-    links.style.background = 'rgba(10,10,10,0.98)';
+    links.style.background = 'rgba(255,255,255,0.98)';
     links.style.padding = '24px 32px';
-    links.style.borderBottom = '1px solid rgba(200,168,75,0.2)';
+    links.style.borderBottom = '1px solid rgba(184,146,42,0.2)';
     links.style.gap = '20px';
     links.style.zIndex = '999';
   }
@@ -1463,4 +1500,3 @@
 
 </body>
 </html>
-
