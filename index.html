@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>台中羅氏廣告車 | LOAD Moving Advertising Billboard</title>
+<title>L.O.A.D 台中羅氏廣告車 | 城市行動廣告品牌</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -12,116 +15,347 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Microsoft JhengHei",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#f5f7fa;
-    color:#222;
+    font-family:'Noto Sans TC',sans-serif;
+    background:#f4f7fb;
+    color:#111;
+    overflow-x:hidden;
 }
 
-.hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),
-    url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2070');
-    background-size:cover;
-    background-position:center;
+/* ===== NAVBAR ===== */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.75);
+    border-bottom:1px solid rgba(255,255,255,0.3);
+}
+
+.nav-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:20px;
-}
-
-.hero-content{
-    max-width:1000px;
+    padding:20px 0;
 }
 
 .logo{
-    font-size:90px;
-    font-weight:bold;
-    letter-spacing:10px;
+    font-size:32px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    text-decoration:none;
     color:#111;
+    font-weight:600;
+    transition:0.3s;
 }
 
-.subtitle{
-    font-size:28px;
-    margin-top:10px;
-    color:#555;
+.nav-links a:hover{
+    color:#0d6efd;
 }
 
-.description{
-    margin-top:30px;
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+    linear-gradient(rgba(255,255,255,0.72),rgba(255,255,255,0.78)),
+    url('https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2070');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#0d6efd22,transparent);
+    top:-200px;
+    right:-100px;
+}
+
+.hero-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:60px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+.hero-left h1{
+    font-size:82px;
+    line-height:1;
+    font-weight:900;
+    margin-bottom:25px;
+}
+
+.hero-left h1 span{
+    color:#0d6efd;
+}
+
+.hero-left p{
     font-size:22px;
-    line-height:1.8;
-    color:#333;
+    line-height:1.9;
+    color:#444;
+    margin-bottom:40px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .btn{
-    margin-top:40px;
-    display:inline-block;
-    padding:16px 40px;
+    padding:18px 38px;
+    border-radius:60px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.35s;
+}
+
+.btn-primary{
     background:#111;
     color:white;
-    text-decoration:none;
-    border-radius:50px;
-    transition:0.3s;
-    font-size:18px;
 }
 
-.btn:hover{
-    background:#ff3c3c;
+.btn-primary:hover{
+    background:#0d6efd;
+    transform:translateY(-3px);
 }
+
+.btn-secondary{
+    border:2px solid #111;
+    color:#111;
+}
+
+.btn-secondary:hover{
+    background:#111;
+    color:white;
+}
+
+/* ===== HERO CARD ===== */
+
+.hero-card{
+    background:rgba(255,255,255,0.85);
+    border-radius:35px;
+    padding:40px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.12);
+}
+
+.hero-card img{
+    width:100%;
+    border-radius:25px;
+    margin-bottom:25px;
+}
+
+.card-title{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.card-desc{
+    color:#555;
+    line-height:1.8;
+}
+
+/* ===== SECTION ===== */
 
 .section{
-    padding:100px 10%;
-    background:white;
+    padding:120px 8%;
 }
 
-.section-title{
-    font-size:42px;
-    margin-bottom:30px;
+.section-header{
     text-align:center;
+    margin-bottom:70px;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-    margin-top:50px;
-}
-
-.card{
-    background:#f8f9fb;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-.card h3{
+.section-header h2{
+    font-size:52px;
     margin-bottom:20px;
 }
 
-.footer{
+.section-header p{
+    color:#666;
+    font-size:20px;
+}
+
+/* ===== SERVICES ===== */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+}
+
+.service-card{
+    background:white;
+    border-radius:30px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(0,0,0,0.06);
+    transition:0.35s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+}
+
+.service-card h3{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.service-card p{
+    line-height:1.9;
+    color:#555;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:35px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.12);
+}
+
+.about-content h2{
+    font-size:52px;
+    margin-bottom:25px;
+}
+
+.about-content p{
+    color:#555;
+    line-height:2;
+    margin-bottom:20px;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
     background:#111;
     color:white;
     text-align:center;
+    border-radius:40px;
+    padding:80px 40px;
+}
+
+.contact h2{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    font-size:20px;
+    color:#ccc;
+    margin-bottom:35px;
+}
+
+.contact-btn{
+    display:inline-block;
+    padding:18px 40px;
+    background:white;
+    color:#111;
+    border-radius:60px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.35s;
+}
+
+.contact-btn:hover{
+    background:#0d6efd;
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    text-align:center;
     padding:40px;
+    color:#777;
+    font-size:14px;
 }
 
-@media(max-width:768px){
+/* ===== MOBILE ===== */
 
-.logo{
-    font-size:50px;
+@media(max-width:1000px){
+
+.hero-container,
+.about{
+    grid-template-columns:1fr;
 }
 
-.subtitle{
-    font-size:22px;
+.hero-left h1{
+    font-size:58px;
 }
 
-.description{
+.hero{
+    padding-top:120px;
+}
+
+.nav-links{
+    display:none;
+}
+
+.section-header h2,
+.about-content h2,
+.contact h2{
+    font-size:38px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-left h1{
+    font-size:42px;
+}
+
+.hero-left p{
     font-size:18px;
+}
+
+.section{
+    padding:90px 7%;
+}
+
+.hero-card{
+    padding:25px;
 }
 
 }
@@ -131,24 +365,192 @@ body{
 
 <body>
 
+<!-- NAV -->
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">
+L.O.A.D
+</div>
+
+<div class="nav-links">
+<a href="#services">服務項目</a>
+<a href="#about">品牌介紹</a>
+<a href="#contact">聯絡我們</a>
+</div>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-container">
 
-<h1 class="logo">L.O.A.D.</h1>
+<div class="hero-left">
 
-<div class="subtitle">
-台中羅氏廣告車
+<h1>
+城市移動<br>
+廣告新<span>視界</span>
+</h1>
+
+<p>
+L.O.A.D 台中羅氏廣告車專注於高辨識度行動媒體宣傳，
+結合都市街景曝光、商圈巡迴與品牌活動推廣，
+打造兼具時尚感與高記憶點的城市廣告體驗。
+</p>
+
+<div class="hero-buttons">
+
+<a href="#contact" class="btn btn-primary">
+立即洽詢
+</a>
+
+<a href="#services" class="btn btn-secondary">
+了解服務
+</a>
+
 </div>
 
-<div class="description">
-移動的力量，讓品牌被城市看見。<br><br>
-專業行動廣告車宣傳服務，結合都市巡迴曝光、
-品牌活動推廣與高辨識度車體廣告，
-打造最具行動力的城市媒體。
 </div>
 
-<a class="btn" href="#">
+<div class="hero-card">
+
+<img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=2070">
+
+<div class="card-title">
+台中城市廣告巡迴
+</div>
+
+<div class="card-desc">
+結合台中國家歌劇院、台中公園與城市商圈動線，
+透過大型廣告車打造高流量品牌曝光，
+提升企業形象與市場關注度。
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+
+<div class="section-header">
+
+<h2>
+專業行動廣告服務
+</h2>
+
+<p>
+打造具有城市影響力的移動式品牌宣傳
+</p>
+
+</div>
+
+<div class="services">
+
+<div class="service-card">
+
+<h3>
+品牌巡迴曝光
+</h3>
+
+<p>
+透過高流量商圈與活動路線規劃，
+讓品牌廣告深入城市核心區域，
+提升企業曝光與品牌記憶度。
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>
+活動宣傳推廣
+</h3>
+
+<p>
+結合展覽、商圈活動、新品上市與大型開幕，
+打造具有現場吸引力的移動廣告宣傳模式。
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>
+高辨識度車體設計
+</h3>
+
+<p>
+運用大型視覺輸出與專業車體廣告設計，
+建立強烈品牌識別與都市視覺焦點。
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=2070">
+
+<div class="about-content">
+
+<h2>
+台中城市行動媒體品牌
+</h2>
+
+<p>
+L.O.A.D 台中羅氏廣告車致力於打造現代化城市廣告體驗，
+透過大型移動媒體與都市巡迴曝光，
+協助品牌快速建立市場能見度。
+</p>
+
+<p>
+我們結合視覺設計、車體廣告與城市動線規劃，
+讓每一次巡迴都成為品牌與城市互動的重要媒介。
+</p>
+
+<p>
+以高質感設計與專業宣傳策略，
+創造真正具影響力的城市行動廣告。
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section">
+
+<div class="contact" id="contact">
+
+<h2>
+讓品牌被城市看見
+</h2>
+
+<p>
+歡迎洽詢 L.O.A.D 台中羅氏廣告車行動廣告服務
+</p>
+
+<a href="#" class="contact-btn">
 立即聯絡我們
 </a>
 
@@ -156,45 +558,11 @@ body{
 
 </section>
 
-<section class="section">
-
-<h2 class="section-title">
-我們的服務
-</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>品牌活動宣傳</h3>
-<p>
-結合商圈巡迴與高流量曝光，
-提升品牌話題與現場人流。
-</p>
-</div>
-
-<div class="card">
-<h3>行動廣告車</h3>
-<p>
-動態城市曝光，
-強化品牌記憶點與視覺衝擊。
-</p>
-</div>
-
-<div class="card">
-<h3>台中在地推廣</h3>
-<p>
-深耕台中商圈與活動宣傳，
-提供高效率廣告曝光服務。
-</p>
-</div>
-
-</div>
-
-</section>
+<!-- FOOTER -->
 
 <footer class="footer">
 
-L.O.A.D. 台中羅氏廣告車 © 2026
+© 2026 L.O.A.D 台中羅氏廣告車 All Rights Reserved.
 
 </footer>
 
